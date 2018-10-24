@@ -1,0 +1,53 @@
+# Define the name of the sweep
+sweep_name= "particle_radius_sweep";
+
+# Define the name of the files
+filename1 = "AbsorptionXSection.csv";
+filename2 = "ScatteringXSection.csv";
+
+# Define the variables
+
+# Set up the wavelength
+min_lambda = getglobalmonitor("minimum wavelength");
+max_lambda = getglobalmonitor("maximum wavelength");
+freq_pts = getglobalmonitor("frequency points");
+lambda = linspace(min_lambda, max_lambda, freq_pts);
+
+# Retrieve the data from the sweep
+r_p = getsweepdata(sweep_name, "r_p");
+abs_sigma = getsweepdata(sweep_name, "abs_sigma");
+scat_sigma = getsweepdata(sweep_name, "scat_sigma");
+
+# If the files already exist, delete them
+if(fileexists(filename1)){
+    ?">>Deleting existing " + filename1 + "file";
+    rm(filename1);
+}
+
+if(fileexists(filename2)){
+    ?">>Deleting existing " + filename2 + "file";    
+    rm(filename2);
+}
+
+# Initialize the files with appropriate headers
+write(filename1, "r_p,wavelength,abs_sigma");
+write(filename2, "r_p,wavelength,scat_sigma");
+
+
+# Write the date to the files
+?">>Writing data to file " + filename1;
+for(i=1:length(r_p)){
+    for(j=1:length(lambda)){
+        write(filename1, num2str(r_p(i))+","+num2str(lambda(j))+","+num2str((-1)*abs_sigma(i,j)));
+    }
+}
+
+?">>Writing data to file " + filename2;
+for(i=1:length(r_p)){
+    for(j=1:length(lambda)){
+        write(filename2, num2str(r_p(i))+","+num2str(lambda(j))+","+num2str(scat_sigma(i,j)));
+    }
+}
+    
+# Print completion message to console
+?">>Script finished: Data successfully written to files!";
