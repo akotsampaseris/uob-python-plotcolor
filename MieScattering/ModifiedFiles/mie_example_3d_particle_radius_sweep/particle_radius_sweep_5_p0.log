@@ -1,0 +1,157 @@
+FDTD Solutions Version 8.20.1731 (Linux 64bit)
+ expires (month/day/year): 11/11/2018
+using config file: /home/thenegativeentropy/.config/Lumerical/FDTD Solutions.ini
+license host: <a href=http://localhost:8095>localhost:8095</a>
+current time: Tue Oct 23 18:17:37 2018
+Running on host: Hackingdom
+All processes are communicating and ready to proceed to simulation...
+Running fsp file: /opt/lumerical/fdtd/bin/fdtd-engine-mpich2nem -t 1 -remote -hide -ttyname /dev/pts/0 /home/thenegativeentropy/DevProjects/SciProjects/Lumerical/FDTD/MieScattering/ModifiedFiles/mie_example_3d_particle_radius_sweep/particle_radius_sweep_5.fsp
+number of processors is 4
+processors are distributed as: 1x2x2
+Running 3D Simulation
+Starting meshing
+Simulation size in gridpoints: 45 x 45 x 23
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.024517 seconds of CPU time
+14160 14160
+Starting meshing
+Simulation size in gridpoints: 45 x 45 x 23
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.017753 seconds of CPU time
+16000 16000
+Starting meshing
+Simulation size in gridpoints: 45 x 45 x 23
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.016794 seconds of CPU time
+13920 13920
+finished material properties
+Meshing Time: 0.047628 seconds, Init Electrical Material Time: 0.02003 seconds, Init Magnetic Material Time: 0.000123
+Using selected optimization level: 2
+Selecting 3d kernel for splitFieldDirection=0 and optLevel=2
+-----------------------------------------
+Beginning initialization of 3D Simulation
+Starting to add sources to simulation
+Adding 3D TFSF source propagating in Y
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.000487 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.000334 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.000304 seconds of CPU time
+0 0
+finished material properties
+Meshing Time: 0.010215 seconds, Init Electrical Material Time: 0.000346 seconds, Init Magnetic Material Time: 7e-06
+Using selected optimization level: 2
+Selecting 3d kernel for splitFieldDirection=0 and optLevel=2
+Starting to add boundary conditions to simulation
+Adding 3D Symmetric BC
+Adding 3D PML BC
+Adding 3D PML BC
+Adding 3D Parallel BC
+Adding 3D Anti-Symmetric BC
+Adding 3D Parallel BC
+Starting to add monitors to Simulation
+Adding analysis monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D Time monitor
+Adding 3D movie monitor
+Adding analysis monitor
+Adding 3D DFT monitor
+Monitor ::model::total::x1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Monitor ::model::total::z1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding analysis monitor
+Adding 3D DFT monitor
+Monitor ::model::scat::x1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Monitor ::model::scat::z1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding analysis monitor
+Adding 3D DFT monitor
+Monitor ::model::scat_ff::z1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Monitor ::model::scat_ff::x1 is outside the simulation and will not record any data
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D DFT monitor
+Adding 3D index monitor
+Finished initialization of 3D Simulation
+-----------------------------------------
+All processes are communicating and ready to proceed to simulation...
+Starting 5245 total iterations
+1% complete. Max time remaining: 14 secs. Auto Shutoff: 1
+2% complete. Max time remaining: 14 secs. Auto Shutoff: 1
+5% complete. Max time remaining: 14 secs. Auto Shutoff: 1
+9% complete. Max time remaining: 14 secs. Auto Shutoff: 1
+19% complete. Max time remaining: 12 secs. Auto Shutoff: 1
+29% complete. Max time remaining: 10 secs. Auto Shutoff: 0.00226989
+39% complete. Max time remaining: 9 secs. Auto Shutoff: 0.000161773
+49% complete. Max time remaining: 7 secs. Auto Shutoff: 5.0774e-05
+58% complete. Max time remaining: 6 secs. Auto Shutoff: 1.03895e-05
+61% complete. Max time remaining: 6 secs. Auto Shutoff: 7.07906e-06
+100% complete. Max time remaining: 0 mins, 0 secs. Auto Shutoff: 7.07906e-06
+Early termination of simulation, the autoshutoff criteria are satisfied.
+Completed 3203 iterations, or 3.053380e-14s of Simulation Time
+Process 0 starting to collect data
+    collecting monitor data
+Monitor ::model::total::x1 is outside the simulation and will not record any data
+Monitor ::model::total::z1 is outside the simulation and will not record any data
+Monitor ::model::scat::x1 is outside the simulation and will not record any data
+Monitor ::model::scat::z1 is outside the simulation and will not record any data
+Monitor ::model::scat_ff::z1 is outside the simulation and will not record any data
+Monitor ::model::scat_ff::x1 is outside the simulation and will not record any data
+    collecting source data
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0.000000e+00%)
+Completed meshing!
+Meshing complete in 3.350000e-04 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0.000000e+00%)
+Completed meshing!
+Meshing complete in 3.030000e-04 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 187 x 3
+Refined 0 mesh cells (0.000000e+00%)
+Completed meshing!
+Meshing complete in 3.020000e-04 seconds of CPU time
+0 0
+finished material properties
+Meshing Time: 7.430000e-04 seconds, Init Electrical Material Time: 3.310000e-04 seconds, Init Magnetic Material Time: 7.000000e-06
+Using selected optimization level: 0
+Selecting 3d kernel for splitFieldDirection=0 and optLevel=0
+Finished collecting data
+Simulation completed successfully at: Tue Oct 23 18:17:46 2018
+Overall wall time measurements in seconds:
+    time to mesh and initialize: 0
+    time to run FDTD simulation: 9
+    time to finalize data and save to files: 0
+    FDTD solver speed: 16.5755 Mnodes/s
+    total FDTD solver speed on 4 processes: 66.3021 Mnodes/s

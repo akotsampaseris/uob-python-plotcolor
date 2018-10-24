@@ -1,0 +1,42 @@
+# Configure the sweep
+sweep_name = "particle_radius_sweep";
+type = "Ranges";
+num_of_pts = 20;
+
+# Define the parameters
+parameter1 = struct;
+parameter1.Name = "r_p";
+parameter1.Parameter = "::model::r_p";
+parameter1.Type = "Length";
+parameter1.Start = 40;
+parameter1.Stop = 60;
+parameter1.Units = "nanometers";
+
+# Define the results
+result1 = struct;
+result1.Name = "abs_sigma";
+result1.Result = "::model::total::sigma";
+
+result2 = struct;
+result2.Name = "scat_sigma";
+result2.Result = "::model::scat::sigma";
+
+# Make sure this is a new sweep
+try{
+    deletesweep(sweep_name);
+} catch(errorMsg);
+
+# Create the sweep
+addsweep;
+
+# Set up the sweep
+setsweep("sweep", "name", sweep_name);
+setsweep(sweep_name, "type", type);
+setsweep(sweep_name, "number of points", num_of_pts);
+
+# Add parameters to the sweep
+addsweepparameter(sweep_name, parameter1);
+
+# Add results to the sweep
+addsweepresult(sweep_name, result1);
+addsweepresult(sweep_name, result2);
