@@ -1,8 +1,5 @@
 import matplotlib.pyplot as plt, numpy as np
-from matplotlib.colors import BoundaryNorm
-from matplotlib.ticker import MaxNLocator
 import csv
-from array import array
 
 # Define the names of the files
 filenames = ['AbsorptionXSection', 'ScatteringXSection']
@@ -25,51 +22,23 @@ with open('data/'+filename+extension, 'r') as csvfile:
         abs_sigma.append(float(row['abs_sigma']))
 
 
-N = 10000
-x, y = np.mgrid[:N, :N]
-Z = abs_sigma
-print(len(abs_sigma))
+r_p = np.unique(r_p)
+wavelength = np.unique(wavelength)
 
-fig, axs = plt.subplots(2,2)
+abs_sigma_matrix = [[0 for x in range(len(r_p))] for y in range(len(wavelength))]
 
-ax1 = axs[0,0]
-c = ax1.imshow(
-        Z, cmap='RdBu',
-        vmin=-10, vmax=10,
-        interpolation='none'
-)
-fig.colorbar(c, ax=ax1, extend='both')
+for i in range(len(r_p)):
+    for j in range(len(wavelength)):
+        k = (i)*len(wavelength) + j
+        abs_sigma_matrix[j][len(r_p)-1-i] = abs_sigma[k]
+
+x = wavelength
+y = r_p
+z = abs_sigma_matrix
+print(x)
+
+fig, ax = plt.subplots()
+cs = ax.pcolormesh(x, y, z, cmap='RdBu')
+fig.colorbar(cs)
+ax.set_title("Test")
 plt.show()
-
-
-
-"""dy, dx = 0.15, 0.15
-
-y, x = np.mgrid[
-        slice(min(r_p), max(r_p), dy),
-        slice(min(wavelength), max(wavelength), dx)
-]
-z = abs_sigma
-z_min = min(z)
-z_max = max(z)
-
-fig, axs = plt.subplots(2, 2)
-
-ax = axs[0,0]
-c = ax.pcolormesh(
-        x, y, z,
-        cmap='PiYG', vmin=z_min, vmax=z_max
-)
-ax.set_title('pcolor')
-ax.axis([
-        min(x), max(x),
-        min(y), max(y)
-])
-fig.colorbar(c, ax=ax)
-
-plt.title('Radius of nanoparticle vs wavelength')
-
-plt.legend()
-
-plt.show()
-"""
