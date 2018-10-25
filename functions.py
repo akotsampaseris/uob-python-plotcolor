@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt, csv
+import matplotlib.pyplot as plt
 
 def getdata(path, *args):
     # Open the csv files to read the data
