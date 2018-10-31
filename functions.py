@@ -12,6 +12,11 @@ def getdata(path, *args):
                 list.append(float(row[arg]))
             return list
 
+def convert2nano(number):
+    """Simply converts a number to a 1e-10 basis"""
+    number = number*1e9
+
+    return number
 
 def plotcolormesh(x, y, z, cmap='RdBu', title="Figure"):
     fig, ax = plt.subplots()

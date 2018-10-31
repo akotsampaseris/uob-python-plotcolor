@@ -2,6 +2,7 @@ import numpy as np, csv
 from tkinter import *
 from functions import *
 
+folder = 'rp_40_to_120'
 filename1 = 'AbsorptionXSection.csv'
 filename2 = 'ScatteringXSection.csv'
 
@@ -13,7 +14,8 @@ scat_sigma = []
 nano = 1e9
 
 # Get data from file1
-path = 'data/'+ filename1
+path = 'data/' + folder + '/' + filename1
+
 with open(path, 'r') as csvfile:
     data = csv.DictReader(csvfile)
     for row in data:
@@ -22,7 +24,7 @@ with open(path, 'r') as csvfile:
         abs_sigma.append(float(row['abs_sigma']))
     csvfile.close()
 
-path = 'data/'+ filename2
+path = 'data/' + folder + '/' + filename2
 with open(path, 'r') as csvfile:
     data = csv.DictReader(csvfile)
     for row in data:
@@ -30,8 +32,8 @@ with open(path, 'r') as csvfile:
     csvfile.close()
 
 # Keep only unique values for the radius and the wavelength
-r_p = np.unique(r_p)*nano
-wavelength = np.unique(wavelength)*nano
+r_p = convert2nano(np.unique(r_p))
+wavelength = convert2nano(np.unique(wavelength))
 
 # Initialize the absorption sigma matrix
 abs_sigma_matrix = [[0 for x in range(len(r_p))] for y in range(len(wavelength))]
@@ -41,9 +43,9 @@ ext_sigma_matrix = [[0 for x in range(len(r_p))] for y in range(len(wavelength))
 for i in range(len(r_p)):
     for j in range(len(wavelength)):
         k = (i)*len(wavelength) + j
-        abs_sigma_matrix[i][len(wavelength) - 1 - j] = abs_sigma[k]
-        scat_sigma_matrix[i][len(wavelength) - 1 - j] = scat_sigma[k]
-        ext_sigma_matrix[i][len(wavelength) - 1 - j] = scat_sigma[k] + abs_sigma[k]
+        abs_sigma_matrix[i][len(wavelength)-1-j] = abs_sigma[k]
+        scat_sigma_matrix[i][len(wavelength)-1-j] = scat_sigma[k]
+        ext_sigma_matrix[i][len(wavelength)-1-j] = scat_sigma[k] - abs_sigma[k]
 
 xlabel = 'Wavelength (nm)'
 ylabel = 'Particle radius (nm)'
